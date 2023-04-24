@@ -1,2 +1,3 @@
 # Color-Quell
-A Color blindness Simulation project. Simulates an Uploaded image to show how A person with color blindness views them.
+A Color blindness Simulation project. 
+the project takes an image as input and displays the image that a person with color blindness will see.
