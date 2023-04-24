@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Uploaded image</title>
+    </head>
+    <body>
+        <h1>Uploaded image:</h1>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" height="720" width="1280">
+        <h1>Simulated Protonopia image:</h1>
+        <img src="{{ url_for('static', filename='sim/' + prot) }}" height="720" width="1280">
+        <h1>Simulated deuteranopia image:</h1>
+        <img src="{{ url_for('static', filename='sim/' + deut) }}" height="720" width="1280">
+        <h1>Simulated tritanopia image:</h1>
+        <img src="{{ url_for('static', filename='sim/' + trit) }}" height="720" width="1280">
+    </body>
+</html>
