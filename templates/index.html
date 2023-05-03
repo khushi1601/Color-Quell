@@ -1,13 +1,97 @@
 <!doctype html>
 <html>
     <head>
-        <title>Upload an image</title>
+        <title>Color Quell</title>
+        <style>
+            body {
+                height: 2000px;
+                margin: 0;
+                padding: 0;
+            }
+            section {
+                padding: 50px;
+                color: white;
+                height: 100vh;
+            }
+            body {
+                background-color: #000;
+            }
+            
+           
+
+        </style>
+        
+ 
     </head>
     <body>
-        <h1>Upload an image</h1>
-        <form action="/" method="post" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <input type="submit" value="Upload">
-        </form>
-    </body>
-</html>
+                
+        <section id="homepage">
+            <div style="text-align:center;">
+                <h1>Welcome to Color Quell</h1>
+                
+            <p> This is a color blindness simulation project</p>
+              </div>
+              <div style="position: relative; height: 200px;">
+                <p style="position: absolute; bottom: 0; left: 0; width: 100%; text-align: center; vertical-align: bottom;">scroll down to see more</p>
+              </div>
+              
+              <div style="position: relative; height: 100px;">
+                <a href="#stats" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 5l5 5 5-5"></path>
+                  </svg>
+                </a>
+              </div>
+              <div id="stats" style="height: 500px;">
+              </div>
+
+              
+
+        </section>
+        
+        <section id="stats">
+            <h1>Statistics</h1>
+            <p>Here are some statistics about color blindness:</p>
+            color blindness is more common than you think! <br>About 1 in 12 men and 1 in 200 women have some form of color blindness
+        </section>
+        
+  
+        
+        <section id="upload">
+            <h1>Upload an image</h1>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Upload">
+            </form>
+        </section>
+        
+        <script>
+            // Get references to the sections
+            const homepage = document.querySelector('#homepage');
+            const stats = document.querySelector('#stats');
+            const types = document.querySelector('#types');
+            const upload = document.querySelector('#upload');
+            
+            // Hide all sections except the homepage
+            stats.style.display = 'none';
+            types.style.display = 'none';
+            upload.style.display = 'none';
+            
+            // Show the appropriate section when the user scrolls down
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.pageYOffset;
+                
+                if (scrollPosition >= homepage.offsetTop && scrollPosition < stats.offsetTop) {
+                    homepage.style.display = 'block';
+                    stats.style.display = 'none';
+                    types.style.display = 'none';
+                    upload.style.display = 'none';
+                } else if (scrollPosition >= stats.offsetTop && scrollPosition < types.offsetTop) {
+                    homepage.style.display = 'none';
+                    stats.style.display = 'block';
+                    types.style.display = 'none';
+                    upload.style.display = 'none';
+                } else if (scrollPosition >= types.offsetTop && scrollPosition < upload.offsetTop) {
+                    homepage.style.display = 'none';
+                    stats.style.display = 'none';
+                    types.style.display = 'block' 
