@@ -1,16 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Uploaded image</title>
-    </head>
-    <body>
-        <h1>Uploaded image:</h1>
+<head>
+	<title>Radio Button Example</title>
+	<style>
+		img {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+    <h1>Uploaded image:</h1>
         <img src="{{ url_for('static', filename='uploads/' + filename) }}" height="720" width="1280">
-        <h1>Simulated Protonopia image:</h1>
-        <img src="{{ url_for('static', filename='sim/' + prot) }}" height="720" width="1280">
-        <h1>Simulated deuteranopia image:</h1>
-        <img src="{{ url_for('static', filename='sim/' + deut) }}" height="720" width="1280">
-        <h1>Simulated tritanopia image:</h1>
-        <img src="{{ url_for('static', filename='sim/' + trit) }}" height="720" width="1280">
-    </body>
+	<label>
+		<input type="radio" name="colorblindness" value="protonopia" onchange="showImage()" checked> Protonopia
+	</label>
+	<label>
+		<input type="radio" name="colorblindness" value="deutronopia" onchange="showImage()"> Deutronopia
+	</label>
+	<label>
+		<input type="radio" name="colorblindness" value="tritonopia" onchange="showImage()"> Tritonopia
+	</label>
+
+	<img id="protonopia" src="{{ url_for('static', filename='sim/' + prot) }}">
+	<img id="deutronopia" src="{{ url_for('static', filename='sim/' + deut) }}">
+	<img id="tritonopia" src="{{ url_for('static', filename='sim/' + trit) }}">
+
+	<script>
+		function showImage() {
+			var selectedImage = document.querySelector('input[name="colorblindness"]:checked').value;
+			document.getElementById(selectedImage).style.display = "block";
+			var images = document.getElementsByTagName("img");
+			for (var i = 0; i < images.length; i++) {
+				if (images[i].id !== selectedImage) {
+					images[i].style.display = "none";
+				}
+			}
+		}
+	</script>
+</body>
 </html>
